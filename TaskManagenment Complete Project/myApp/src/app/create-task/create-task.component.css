@@ -1,0 +1,75 @@
+/* General Styles for the Form Container */
+.create-task-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #ffffff; /* Light background for the form area */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(145deg, #e6e4ff, #89d4cf); /* Soft gradient background */
+  }
+  
+  h2 {
+    color: #105a83; /* Subtle blue for headings */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+    color: #333333;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #cccccc; /* Border color */
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding and border in the element's width */
+    margin-bottom: 20px;
+  }
+  
+  textarea {
+    height: 120px; /* Fixed height for textarea */
+    resize: vertical; /* Allow only vertical resize */
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50; /* Green background for submit button */
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #45a049; /* Darker green on hover */
+  }
+  
+  /* Additional button for going back to the dashboard */
+  .back-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #f44336; /* Red color for contrast and attention */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .back-button:hover {
+    background-color: #d32f2f; /* Darker shade on hover */
+  }
+  

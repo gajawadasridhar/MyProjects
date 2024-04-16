@@ -1,0 +1,14 @@
+<div class="container">
+    <h2>Task Details</h2>
+    <div *ngIf="task" class="task-details">
+      <p><strong>ID:</strong> {{ task.id }}</p>
+      <p><strong>Name:</strong> {{ task.name }}</p>
+      <p><strong>Description:</strong> {{ task.description }}</p>
+      <p><strong>Priority:</strong> {{ task.priority }}</p>
+      <p><strong>Status:</strong> {{ task.status }}</p>
+    </div>
+    <div *ngIf="!task" class="no-task">
+      <p>No task details found for ID: {{ taskId }}</p>
+    </div>
+    <button class="back-button" (click)="goBack()">Back to Dashboard</button>
+  </div>

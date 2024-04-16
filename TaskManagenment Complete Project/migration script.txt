@@ -1,0 +1,25 @@
+-- Check if the Tasks table already exists and drop it if it does
+IF OBJECT_ID('dbo.Tasks', 'U') IS NOT NULL
+    DROP TABLE dbo.Tasks;
+GO
+
+-- Create the Tasks table
+CREATE TABLE dbo.Tasks (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    Name NVARCHAR(255) NOT NULL,
+    Description NVARCHAR(MAX) NULL,
+    Priority TINYINT NOT NULL,
+    Status TINYINT NOT NULL,
+    Added DATETIME2 NOT NULL DEFAULT GETDATE(),
+    Completed DATETIME2 NULL
+);
+GO
+
+-- Insert initial data into the Tasks table
+INSERT INTO dbo.Tasks (Name, Description, Priority, Status, Added, Completed) VALUES
+('Project Planning', 'Plan the project phases and deliverables', 1, 1, GETDATE(), NULL),
+('UI Design', 'Design the user interface for the application', 2, 1, GETDATE(), NULL),
+('Database Setup', 'Set up the initial database schema', 1, 2, GETDATE(), NULL),
+('API Development', 'Develop RESTful APIs for client-server communication', 2, 1, GETDATE(), GETDATE()),
+('Testing and QA', 'Perform testing and quality assurance', 3, 1, GETDATE(), NULL);
+GO

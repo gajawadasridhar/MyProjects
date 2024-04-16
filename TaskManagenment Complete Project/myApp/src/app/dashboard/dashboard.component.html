@@ -1,0 +1,50 @@
+<!-- dashboard.component.html -->
+<div class="dashboard-container">
+    <h1>Dashboard</h1>
+    <p>Welcome to the dashboard! Here you can manage all your tasks.</p>
+    <button class="create-task-button" (click)="onCreateTask()">Create Task</button>
+
+    <!-- Task table -->
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Added Time</th>
+          <th>Time Spent</th>
+          <th>Actions</th>
+ 
+          <th>Update Status</th> <!-- Changed column title for clarity -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks" [ngClass]="{'completed-row': task.status === 1, 'incomplete-row': task.status === 2}">
+          <td>{{ task.id }}</td>
+          <td>{{ task.name }}</td>
+          <td>{{ task.description }}</td>
+          <td>{{ task.priority }}</td>
+          <td>{{ task.status === 1 ? 'Incomplete' : 'Complete' }}</td>
+          <td>{{ task.added | date:'medium' }}</td>
+          <td>
+            <i class="fas fa-stopwatch"></i> <!-- Font Awesome watch icon -->
+            {{ calculateTimeSpent(task.added) }}
+          </td>
+          <td>
+            <button class="view-button" (click)="onViewTask(task.id)">View</button>
+            <button class="edit-button" (click)="onEditTask(task.id)">Edit</button>
+            <button class="delete-button" (click)="onDeleteTask(task.id)">Delete</button>
+          </td>
+          
+          <td>
+            <!-- Show button only for incomplete tasks -->
+            <button *ngIf="task.status === 1" class="complete-button" (click)="completeTask(task.id)">
+              Mark Complete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
